@@ -1,0 +1,50 @@
+{
+  "line_items": {
+    "wf1-concrete": 14.22,
+    "wf1-formwork": 384.0,
+    "wf1-rebar-5": 624.8,
+    "wf1-rebar-4": 192.4,
+    "fw1-concrete": 11.85,
+    "fw1-formwork": 960.0,
+    "fw1-rebar-4": 881.8,
+    "f3-concrete": 5.33,
+    "f3-formwork": 96.0,
+    "f3-rebar-6": 264.4,
+    "p1-concrete": 0.42,
+    "p1-formwork": 30.0,
+    "p1-rebar-6": 52.1,
+    "p1-rebar-4": 21.4,
+    "gb1-concrete": 2.89,
+    "gb1-formwork": 208.0,
+    "gb1-rebar-5": 449.9,
+    "gb1-rebar-4": 150.5,
+    "sog1-concrete": 33.33,
+    "sog1-formwork": 80.0,
+    "sog1-rebar-4": 1913.2,
+    "sog1-vapor": 2376.0,
+    "sog1-gravel": 40.0
+  },
+  "flags": [
+    {
+      "id": "flag-wf1-length",
+      "kind": "conflict",
+      "field": "length_ft"
+    },
+    {
+      "id": "flag-f3-bar",
+      "kind": "conflict",
+      "field": "bar"
+    },
+    {
+      "id": "flag-gb1-depth",
+      "kind": "missing",
+      "field": "depth_ft"
+    },
+    {
+      "id": "flag-sog1-thickness",
+      "kind": "conflict",
+      "field": "thickness_in"
+    }
+  ],
+  "line_item_count": 23
+}

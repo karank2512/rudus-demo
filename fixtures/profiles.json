@@ -1,0 +1,33 @@
+{
+  "note": "Two fictional subcontractor pricing profiles. Numbers are invented for this demo and are not market rates. This is the part a forward-deployed engineer tunes per customer: unit prices, waste assumptions, and which categories they self-perform.",
+  "profiles": [
+    {
+      "id": "blue-ox",
+      "company": "Blue Ox Concrete (fictional)",
+      "region": "East Bay",
+      "unit_prices": {
+        "concrete_per_cy": 192.0,
+        "formwork_per_sf": 9.75,
+        "rebar_per_lb": 1.32,
+        "vapor_per_sf": 0.38,
+        "gravel_per_cy": 58.0
+      },
+      "waste_pct": { "concrete": 5, "formwork": 0, "rebar": 10, "vapor": 0, "gravel": 8 },
+      "markup_pct": 12
+    },
+    {
+      "id": "coastline",
+      "company": "Coastline Concrete Constructors (fictional)",
+      "region": "South Bay",
+      "unit_prices": {
+        "concrete_per_cy": 178.0,
+        "formwork_per_sf": 10.6,
+        "rebar_per_lb": 1.41,
+        "vapor_per_sf": 0.44,
+        "gravel_per_cy": 64.0
+      },
+      "waste_pct": { "concrete": 7, "formwork": 0, "rebar": 8, "vapor": 0, "gravel": 5 },
+      "markup_pct": 15
+    }
+  ]
+}

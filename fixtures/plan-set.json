@@ -1,0 +1,113 @@
+{
+  "project": {
+    "name": "Alder Street Workshop",
+    "address": "1200 Alder Street (fictional)",
+    "synthetic": true,
+    "note": "Entirely synthetic plan set written for this demo. No real project, client, or drawing was used. Quantities are for estimating-workflow demonstration only - not structural engineering validation, not code compliance."
+  },
+  "general_notes": {
+    "sheet": "S-001",
+    "concrete_fc_psi": 4000,
+    "rebar_fy_psi": 60000,
+    "stock_bar_length_ft": 40,
+    "lap_splice_class_b_in": { "#4": 18, "#5": 23, "#6": 27 },
+    "development_length_in": { "#4": 14, "#5": 18, "#6": 22 },
+    "cover_in": { "footing": 3, "wall": 2, "beam": 2, "slab": 1.5 },
+    "tie_hook_allowance_in": 8,
+    "vapor_barrier_lap_waste_pct": 10
+  },
+  "sheets": [
+    { "id": "S-001", "title": "Structural General Notes", "content_kind": "notes" },
+    { "id": "S-101", "title": "Foundation Plan", "content_kind": "plan" },
+    { "id": "S-301", "title": "Sections and Details", "content_kind": "details" },
+    { "id": "S-501", "title": "Footing Schedule", "content_kind": "schedule" }
+  ],
+  "building": {
+    "length_ft": 60,
+    "width_ft": 36,
+    "grid_lines_long": ["1", "2", "3", "4"],
+    "grid_lines_cross": ["A", "B", "C"],
+    "bay_long_ft": 20,
+    "bay_cross_ft": 18
+  },
+  "elements": [
+    {
+      "id": "wf1",
+      "kind": "wall_footing",
+      "mark": "WF-1",
+      "label": "Continuous wall footing, perimeter",
+      "width_ft": 2.0,
+      "depth_ft": 1.0,
+      "length_ft": { "value": 192.0, "source": { "sheet": "S-101", "ref": "plan dims, 2 x (60'-0\" + 36'-0\")" } },
+      "length_alt_ft": { "value": 188.0, "source": { "sheet": "S-501", "ref": "schedule general note 2" } },
+      "rebar_longitudinal": { "bar": "#5", "count": 3 },
+      "rebar_transverse": { "bar": "#4", "spacing_in": 12 },
+      "source_refs": ["S-101 foundation plan", "1/S-301 wall section", "S-501 footing schedule"]
+    },
+    {
+      "id": "fw1",
+      "kind": "stem_wall",
+      "mark": "FW-1",
+      "label": "Foundation stem wall, 8\" thick",
+      "thickness_ft": 0.6667,
+      "height_ft": 2.5,
+      "length_ft": { "value": 192.0, "source": { "sheet": "S-101", "ref": "tracks WF-1 perimeter" } },
+      "rebar_vertical": { "bar": "#4", "spacing_in": 16 },
+      "rebar_horizontal": { "bar": "#4", "spacing_in": 12, "faces": 2 },
+      "source_refs": ["S-101 foundation plan", "1/S-301 wall section"]
+    },
+    {
+      "id": "f3",
+      "kind": "spread_footing",
+      "mark": "F3",
+      "label": "Interior spread footings, grids B-2 and B-3",
+      "count": 2,
+      "length_ft": 6.0,
+      "width_ft": 6.0,
+      "depth_ft": 2.0,
+      "rebar_mat": { "bar": "#6", "bars_each_way": 8, "layer": "bottom" },
+      "rebar_mat_alt_bar": { "bar": "#7", "source": { "sheet": "S-301", "ref": "detail 3/S-301 callout" } },
+      "source_refs": ["S-501 footing schedule row F3", "3/S-301 pedestal and footing detail"]
+    },
+    {
+      "id": "p1",
+      "kind": "pedestal",
+      "mark": "P-1",
+      "label": "Column pedestals on F3 footings",
+      "count": 2,
+      "side_ft": 1.5,
+      "height_ft": 2.5,
+      "rebar_vertical_bars": { "bar": "#6", "count": 4 },
+      "rebar_ties": { "bar": "#4", "spacing_in": 12 },
+      "source_refs": ["3/S-301 pedestal and footing detail"]
+    },
+    {
+      "id": "gb1",
+      "kind": "grade_beam",
+      "mark": "GB-1",
+      "label": "Grade beam on grid B, grids 1 to 4",
+      "width_ft": 1.0,
+      "depth_ft": { "value": null, "source": { "sheet": "S-501", "ref": "schedule row GB-1, depth cell blank" } },
+      "depth_alt_ft": { "value": 1.5, "source": { "sheet": "S-301", "ref": "section 1/S-301" } },
+      "length_ft": { "value": 52.0, "source": { "sheet": "S-101", "ref": "clear length between footing faces" } },
+      "rebar_top": { "bar": "#5", "count": 4 },
+      "rebar_bottom": { "bar": "#5", "count": 4 },
+      "rebar_stirrups": { "bar": "#4", "spacing_in": 12 },
+      "source_refs": ["S-501 footing schedule row GB-1", "1/S-301 wall section", "S-101 foundation plan"]
+    },
+    {
+      "id": "sog1",
+      "kind": "slab_on_grade",
+      "mark": "SOG-1",
+      "label": "Slab on grade, full footprint",
+      "length_ft": 60.0,
+      "width_ft": 36.0,
+      "thickness_in": { "value": 5, "source": { "sheet": "S-101", "ref": "plan note 7" } },
+      "thickness_alt_in": { "value": 4, "source": { "sheet": "S-301", "ref": "detail 4/S-301 slab edge" } },
+      "rebar": { "bar": "#4", "spacing_in": 18, "ways": 2 },
+      "vapor_barrier": true,
+      "gravel_base_in": 6,
+      "source_refs": ["S-101 plan note 7", "4/S-301 slab edge detail"]
+    }
+  ]
+}
